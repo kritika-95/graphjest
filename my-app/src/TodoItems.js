@@ -14,27 +14,24 @@ this.createTasks = this.createTasks.bind(this);
         this.props.delete(key);
     }
 
-    //strikethrough
-    complete(){
-        
-
-    }
-  
-
 //this function will add numbers
   createTasks(item) {
+       
     return( 
+        
         <div display="inline">
    
-    <li key={item.key}>{item.text}</li>
+    <li key={item.key} >{item.text}</li>
      <button onClick={()=>this.delete(item.key)} >Remove</button>
-     <button onClick={()=>this.complete()}>Complete</button>
+     <button onClick={this.strikeTask}>Complete</button>
+
        </div> 
         
         )
   }
  
   render() {
+       
     var todoEntries = this.props.entries;
     var listItems = todoEntries.map(this.createTasks);
  

@@ -54,7 +54,7 @@ class TodoList extends Component {
       
 
 
-      if (this._inputElement.value !== "") {
+      if (this._inputElement.value !== "" ) {
     var newItem = {
       text: this._inputElement.value,
       key: Date.now()
@@ -78,12 +78,13 @@ class TodoList extends Component {
   console.log(this.state.items);
      
   e.preventDefault();
- 
-
-  
- 
-  }
+ }
    
+strikeTask = index => {
+    const string = document.getElementById(index).childNodes[1].data;
+    string.strike();
+  };
+
 render() {
   return (
     <div className="todoListMain">
@@ -98,7 +99,7 @@ render() {
         </form>
        
       </div>
-      <TodoItems entries={this.state.items} delete={this.deleteitems} complete={this.completeitem}/>
+      <TodoItems entries={this.state.items} delete={this.deleteitems}    strikeTask={this.strikeTask}/>
     </div>
   );
 }
